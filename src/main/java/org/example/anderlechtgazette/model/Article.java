@@ -57,3 +57,4 @@ public class Article {
         this.reporterEmail = reporterEmail;
     }
 }
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Artikelen Overzicht</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Anderlecht Gazette</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/new">Nieuw Artikel</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/about">Over</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h1>Artikelen</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Titel</th>
+            <th>Reporter</th>
+            <th>Actie</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="article : ${articles}">
+            <td th:text="${article.name}"></td>
+            <td th:text="${article.reporterName}"></td>
+            <td><a th:href="@{'/details/' + ${article.id}}" class="btn btn-primary">Details</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/new" class="btn btn-success">Nieuw Artikel Toevoegen</a>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">&copy; 2024 Anderlecht Gazette</span>
+    </div>
+</footer>
+</body>
+</html>
+
+
+
+
