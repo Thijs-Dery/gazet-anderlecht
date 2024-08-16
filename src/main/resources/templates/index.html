@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
@@ -35,7 +34,7 @@
         <tr th:each="article : ${articles}">
             <td th:text="${article.name}"></td>
             <td th:text="${article.reporterName}"></td>
-            <td><a th:href="@{'/details/' + ${article.id}}" class="btn btn-primary">Details</a></td>
+            <td><a th:href="@{/details/{id}(id=${article.id})}" class="btn btn-primary">Details</a></td>
         </tr>
         </tbody>
     </table>
@@ -49,6 +48,9 @@
 </footer>
 </body>
 </html>
+
+
+
 
 
 
