@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>Artikelen Overzicht</title>
+    <title>Nieuw Artikel</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
@@ -21,24 +21,32 @@
 </nav>
 
 <div class="container mt-5">
-    <h1>Artikelen</h1>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Titel</th>
-            <th>Reporter</th>
-            <th>Actie</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="article : ${articles}">
-            <td th:text="${article.name}"></td>
-            <td th:text="${article.reporterName}"></td>
-            <td><a th:href="@{/details/{id}(id=${article.id})}" class="btn btn-primary">Details</a></td>
-        </tr>
-        </tbody>
-    </table>
-    <a href="/new" class="btn btn-success">Nieuw Artikel Toevoegen</a>
+    <h1>Nieuw Artikel</h1>
+    <form action="/save" method="post">
+        <div class="form-group">
+            <label for="name">Titel</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="category">Categorie</label>
+            <input type="text" class="form-control" id="category" name="category" required>
+        </div>
+        <div class="form-group">
+            <label for="content">Inhoud</label>
+            <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="reporterName">Naam van de Reporter</label>
+            <input type="text" class="form-control" id="reporterName" name="reporterName" required>
+        </div>
+        <div class="form-group">
+            <label for="reporterEmail">Email van de Reporter</label>
+            <input type="email" class="form-control" id="reporterEmail" name="reporterEmail" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Opslaan</button>
+        <!-- Back button -->
+        <a href="/" class="btn btn-secondary">Terug naar Overzicht</a>
+    </form>
 </div>
 
 <footer class="footer">
@@ -48,6 +56,7 @@
 </footer>
 </body>
 </html>
+
 
 
 
